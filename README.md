@@ -2,6 +2,7 @@
 
 PySpeech is a Python script that uses the Vosk speech recognition toolkit to transcribe real-time audio from your microphone.
 
+<p align="center"><img src="https://github.com/user-attachments/assets/736c09c7-8ded-4a6c-8fd4-230536f823f3" alt="cover"></p>
 
 ## Description 📝
 
@@ -13,6 +14,7 @@ This script initializes a Vosk model and a PyAudio stream to capture audio from 
 - The script uses the Vosk speech recognition toolkit.
 - It captures audio using PyAudio.
 - Real-time transcription is printed to the console.
+- Only tested on Windows, but it should work on Linux/Mac
 
 
 ## Installation 🛠️
@@ -51,9 +53,9 @@ This script initializes a Vosk model and a PyAudio stream to capture audio from 
     - Press `Ctrl+C` to stop the script. The script will handle the interrupt and close the audio stream gracefully. *(Or close the terminal)*
 
 
-## Notes 🗒️
+## Additional Notes 🗒️
 
 - Ensure your microphone is properly configured and accessible by PyAudio.
   - It should be the default input device.
 - The script is configured to use a sample rate of 16000 Hz and a single audio channel.
-- Additional models can be found here: https://alphacephei.com/vosk/models
+- Additional Vosk models can be found here: https://alphacephei.com/vosk/models
