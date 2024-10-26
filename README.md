@@ -1,2 +1,60 @@
-# PySpeech
-Use Vosk speech recognition toolkit to transcribe real-time audio from your microphone.
+# PySpeech 🎤
+
+PySpeech is a Python script that uses the Vosk speech recognition toolkit to transcribe real-time audio from your microphone.
+
+## Description 📝
+
+This script initializes a Vosk model and a PyAudio stream to capture audio from your microphone. It then uses the Vosk recognizer to transcribe the audio offline, and in real-time, printing both partial and final transcriptions to the console.
+
+## Key Notes 📌
+
+- The script uses the Vosk speech recognition toolkit.
+- It captures audio using PyAudio.
+- Real-time transcription is printed to the console.
+- The script handles keyboard interrupts `CTRL+C` to gracefully stop the audio stream.
+
+## Installation 🛠️
+
+### Setup ⚙️
+
+1. **Clone the repository:**
+    ```sh
+    git clone https://github.com/Nenotriple/PySpeech.git
+    cd PySpeech
+    ```
+
+2. **Create and activate a virtual environment:**
+    ```sh
+    python -m venv venv
+    venv\Scripts\activate
+    ```
+
+3. **Install the required libraries:**
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+4. **Download the Vosk model:**
+    - Download the `vosk-model-small-en-us-0.15` Vosk model from [Vosk Models](https://alphacephei.com/vosk/models).
+    - Extract the model folder into the project directory.
+      - Ensure the model directory is named `vosk-model-small-en-us-0.15`.
+
+## Usage 🚀
+
+1. **Run the script:**
+    ```sh
+    python PySpeech.py
+    ```
+
+2. **Speak into your microphone:**
+    - The script will print `Listening...` and start transcribing your speech.
+    - Partial transcriptions will be printed as `Partial: ...`.
+    - Final transcriptions will be printed as `You said: ...`.
+
+3. **Stop the script:**
+    - Press `Ctrl+C` to stop the script. The script will handle the interrupt and close the audio stream gracefully.
+
+## Notes 🗒️
+
+- Ensure your microphone is properly configured and accessible by PyAudio.
+- The script is configured to use a sample rate of 16000 Hz and a single audio channel.
