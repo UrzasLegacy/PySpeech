@@ -23,3 +23,5 @@ settings.cfg
 # Misc
 CreateActivate_venv.bat
 Start.bat
+ffmpeg.exe
+vosk-model-en-us-0.22/

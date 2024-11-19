@@ -3,6 +3,8 @@ import pyaudio
 import vosk
 
 
+
+
 def initialize_model(model_path):
     return vosk.Model(model_path)
 
@@ -17,7 +19,7 @@ def open_microphone_stream(audio_device, rate, channels, frames_per_buffer):
     return stream
 
 
-def recognize_speech(stream, recognizer):
+def recognize_speech(stream, recognizer: vosk.KaldiRecognizer):
     print("Listening...")
     last_partial_text = ""
     try:
@@ -25,9 +27,13 @@ def recognize_speech(stream, recognizer):
             data = stream.read(4096)
             if recognizer.AcceptWaveform(data):
                 result = recognizer.Result()
-                text = json.loads(result).get('text', '')
+                res_dict = json.loads(result)
+                text = res_dict.get('text', '')
+                print("Dict: " + result)
                 print("You said: " + text)
                 last_partial_text = ""
+                if text == "stop":
+                    raise KeyboardInterrupt
             else:
                 partial_result = recognizer.PartialResult()
                 partial_text = json.loads(partial_result).get('partial', '')
@@ -43,7 +49,7 @@ def recognize_speech(stream, recognizer):
 
 def main():
     # Initialize the model
-    model_path = "vosk-model-small-en-us-0.15"
+    model_path = "vosk-model-en-us-0.22"
     model = initialize_model(model_path)
 
     # Initialize the audio device
